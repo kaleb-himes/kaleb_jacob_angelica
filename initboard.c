@@ -23,13 +23,13 @@
 #include <gtk/gtk.h>
 #include "initboard.h"
 
-void clear_board (char cBoardLoc[][19], char *cTurn, bool *bWon)
+void clear_board (char cBoardLoc[][17], char *cTurn, bool *bWon)
 {
 	int y, x;
 	
-	for (y = 0; y < 20; y++)
+	for (y = 0; y < 17; y++)
 	{
-		for (x = 0; x < 20; x++)
+		for (x = 0; x < 17; x++)
 			cBoardLoc [x][y] = 'E';
 	}
 	

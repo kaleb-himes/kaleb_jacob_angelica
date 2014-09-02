@@ -21,6 +21,6 @@
 #ifndef __TESTWIN_H__
 #define __TESTWIN_H__
 
-bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][19]);
+bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][17]);
 
 #endif

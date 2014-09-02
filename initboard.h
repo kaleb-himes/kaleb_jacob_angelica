@@ -21,6 +21,6 @@
 #ifndef __INIT_BOARD_H__
 #define __INIT_BOARD_H__
 
-void clear_board (char cBoardLoc[][19], char *cTurn, bool *bWon);
+void clear_board (char cBoardLoc[][17], char *cTurn, bool *bWon);
 
 #endif

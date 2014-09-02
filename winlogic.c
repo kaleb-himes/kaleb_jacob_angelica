@@ -22,7 +22,7 @@
 #include <stdbool.h>
 #include "winlogic.h"
 
-bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][19])
+bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][17])
 {
     /* Until we implement the logic just return false */
     bool bWin = false;

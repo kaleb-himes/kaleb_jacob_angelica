@@ -247,11 +247,11 @@ int main (int argc, char *argv[])
 {
     gtk_init (&argc, &argv);
 
-   /* TheBrain *thinking; 
+    TheBrain *thinking; 
     GtkWidget *vbox;
     GtkWidget *align;
     GtkAdjustment *adj;
-    */
+    
 
     window_main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     g_signal_connect (G_OBJECT (window_main), "delete_event", G_CALLBACK (delete_event), NULL);
@@ -261,7 +261,7 @@ int main (int argc, char *argv[])
     /* initiate the thinking */
 
     /* alloc memory for the brain */
-    /*
+    /* */
     thinking = g_malloc( sizeof(TheBrain) );
 
     thinking->window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
@@ -277,25 +277,25 @@ int main (int argc, char *argv[])
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 10);
     gtk_container_add (GTK_CONTAINER (thinking->window), vbox);
     gtk_widget_show(vbox);
-    */
+    /* */
 
     /* Create a centering alignment object */
-    /*
+    /* */
     align = gtk_alignment_new (0.5, 0.5, 0, 0);
     gtk_box_pack_start (GTK_BOX (vbox), align, FALSE, FALSE, 5);
     gtk_widget_show(align);
-    */
+    /* */
 
     /* Create a GtkAdjusment object to hold the range of the
      * progress bar */
-    /*
+    /* */
     adj = (GtkAdjustment *) gtk_adjustment_new (0, 1, 150, 0, 0, 0);
-    */
+     /* */
 
     /* Create the GtkProgressBar using the adjustment */
-    /*
+    /* */
     thinking->pbar = gtk_progress_bar_new_with_adjustment (adj);
-    */
+    /* */
 
     /* Set the format of the string that can be displayed in the
      * trough of the progress bar:
@@ -303,17 +303,18 @@ int main (int argc, char *argv[])
      * %v - value
      * %l - lower range value
      * %u - upper range value */
-    /*
+    /* */
     gtk_progress_set_format_string (GTK_PROGRESS (thinking->pbar),
             "%v from [%l-%u] (=%p%%)");
     gtk_container_add (GTK_CONTAINER (align), thinking->pbar);
     gtk_widget_show(thinking->pbar);
-    */
+    /* */
 
     /* Add a timer callback to update the value of the progress bar */
-    /*
+    /* */
     thinking->percent_comp = gtk_timeout_add (100, progress_timeout, thinking->pbar);
-    */
+    /* */
+    gtk_widget_show (thinking->window);
 
     /* end the thinking */
     set_up_board();

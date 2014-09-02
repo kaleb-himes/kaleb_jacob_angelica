@@ -29,6 +29,8 @@
 void set_up_board ();
 
 int i_location [2];
+
+/* 'E' signifies a moveable space. 'N' signifies a non-moveable space */
 char board_location[17][17] = {
  {'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
  {'N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'},
@@ -58,6 +60,15 @@ typedef struct _TheBrain {
     GtkWidget *pbar;
     int percent_comp;
 }TheBrain;
+
+/* The brain will be a window named 'thinking' 
+ * that displays the AI and it's search for a
+ * move. The adj will show the progression. 
+ */
+TheBrain *thinking; 
+GtkWidget *vbox;
+GtkWidget *align;
+GtkAdjustment *adj;
 
 static gboolean x_coordinate (GtkWidget *widget, GdkEvent *event, gpointer data)
 {
@@ -217,7 +228,6 @@ void set_up_board ()
     gtk_container_add (GTK_CONTAINER (window_main), fixed_main);
     gtk_fixed_put (GTK_FIXED (fixed_main), image_board, 0, 0);
 
-
     for (y = 0; y < 17; y++)
     {
         for (x = 0; x < 17; x++)
@@ -247,16 +257,10 @@ int main (int argc, char *argv[])
 {
     gtk_init (&argc, &argv);
 
-    TheBrain *thinking; 
-    GtkWidget *vbox;
-    GtkWidget *align;
-    GtkAdjustment *adj;
-    
-
     window_main = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     g_signal_connect (G_OBJECT (window_main), "delete_event", G_CALLBACK (delete_event), NULL);
     g_signal_connect (G_OBJECT (window_main), "destroy", G_CALLBACK (destroy), NULL);
-    gtk_window_set_title (GTK_WINDOW (window_main), "Tic-Tac-Toe");
+    gtk_window_set_title (GTK_WINDOW (window_main), "Polar Tic-Tac-Toe");
 
     /* initiate the thinking */
 
@@ -270,10 +274,10 @@ int main (int argc, char *argv[])
     gtk_signal_connect (GTK_OBJECT (thinking->window), "destroy", 
             G_CALLBACK (destroy), thinking);
 
-    gtk_window_set_title (GTK_WINDOW (thinking->window), "GtkProgressBar");
+    gtk_window_set_title (GTK_WINDOW (thinking->window), "AI's progress");
     gtk_container_set_border_width (GTK_CONTAINER (thinking->window), 0);
 
-    vbox = gtk_vbox_new (FALSE, 5);
+    vbox = gtk_vbox_new (FALSE, 10);
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 10);
     gtk_container_add (GTK_CONTAINER (thinking->window), vbox);
     gtk_widget_show(vbox);
@@ -282,7 +286,7 @@ int main (int argc, char *argv[])
     /* Create a centering alignment object */
     /* */
     align = gtk_alignment_new (0.5, 0.5, 0, 0);
-    gtk_box_pack_start (GTK_BOX (vbox), align, FALSE, FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (vbox), align, FALSE, FALSE, 10);
     gtk_widget_show(align);
     /* */
 
@@ -315,7 +319,6 @@ int main (int argc, char *argv[])
     thinking->percent_comp = gtk_timeout_add (100, progress_timeout, thinking->pbar);
     /* */
     gtk_widget_show (thinking->window);
-
     /* end the thinking */
     set_up_board();
 

@@ -29,8 +29,12 @@ void clear_board (char cBoardLoc[][17], char *cTurn, bool *bWon)
 	
 	for (y = 0; y < 17; y++)
 	{
-		for (x = 0; x < 17; x++)
-			cBoardLoc [x][y] = 'E';
+		for (x = 0; x < 17; x++) {
+
+            if (cBoardLoc [x][y] != 'N') {
+			    cBoardLoc [x][y] = 'E';
+            }
+        }
 	}
 	
 	*cTurn = 'X';

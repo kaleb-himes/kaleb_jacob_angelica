@@ -1,4 +1,5 @@
-/* Copyright 2014 Kaleb, Jacob, Angelica 
+/* Copyright 2014 
+ * @author Kaleb, Jacob, Angelica 
  * 
  * This file is part of Artificially Intelligent Polar Tic Tac Toe game.
  *
@@ -18,5 +19,11 @@
  * If not, see <http://www.gnu.org/licenses/>.
  */
 
-void get_state(int** array);
+/**
+  * Gets the current positions of pieces on the board
+  * @param array a two demensional array with board locations
+  * @param height sets the height of array [height][]
+  * @param width sets the width of array [][width]
+  */
+void get_state(int** array, int* height, int* width);
 

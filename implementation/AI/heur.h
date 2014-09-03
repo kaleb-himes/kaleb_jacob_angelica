@@ -1,4 +1,5 @@
-/* Copyright 2014 Kaleb, Jacob, Angelica 
+/** Copyright 2014
+ * @author Kaleb, Jacob, Angelica 
  * 
  * This file is part of Artificially Intelligent Polar Tic Tac Toe game.
  *
@@ -17,9 +18,37 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+  * Initialize the standard heuristic
+  * @return returns 0 on success and 1 on fail
+  */
 int heur_init();                    /*  */
+
+/**
+  * Make a move with the standard heuristic
+  * @param xyarray the x and y integer for placement
+  * @return 0 for success 
+  */
 int heur_make_move(int* xyarray);   /*  */
+
+/**
+  * Set option for potential prunning
+  * @param prune a boolean flag to set prunning
+  * @return 0 for success
+  */
 int heur_prune(int prune);          /*  */
+
+/**
+  * Free up memory allocated for standard heuristic
+  * @return 0 for success
+  */
 int heur_free();                    /*  */
+
+/**
+  * Set the depth of search if used
+  * @param depth the depth to search
+  * @return 0 for success
+  */
 int heur_depth(int depth);          /*  */
 

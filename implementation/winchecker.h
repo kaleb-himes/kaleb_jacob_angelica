@@ -1,4 +1,5 @@
-/* Copyright 2014 Kaleb, Jacob, Third_person
+/* Copyright 2014
+ * @author Kaleb, Jacob, Third_person
  * 
  * This file is part of Artificially Intelligent Polar Tic Tac Toe game.
  *
@@ -21,6 +22,12 @@
 #ifndef __TESTWIN_H__
 #define __TESTWIN_H__
 
+/**
+  * Function to check for a win
+  * @param cPlayerTurn current player to check
+  * @param cPlayerBoardLoc
+  * @return a boolean value of win or not
+  */
 bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][17]);
 
 #endif

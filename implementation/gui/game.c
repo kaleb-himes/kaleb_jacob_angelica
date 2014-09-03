@@ -23,7 +23,7 @@
 #include <stdbool.h>
 #include <gtk/gtk.h>
 #include "exit.h"
-#include "winlogic.h"
+#include "../winchecker.h"
 #include "initboard.h"
 
 void set_up_board ();
@@ -255,6 +255,18 @@ void set_up_board ()
 
 int main (int argc, char *argv[])
 {
+    /* HUMAN OPTIONS COMMAND LINE PRINT OPTIONS */
+
+    /*
+     * Player 1 is: Human, AI_1 (TDNN), AI_2 (heuristic), AI_3 (classifier)
+     * Player 2 is: "                                                   "
+     * scanf(option1)
+     *      (error handling)
+     * scanf(option2)
+     *      (error handling)
+     * */
+
+    /* END HUMAN OPTIONS COMMAND LINE START UP GUI */
     gtk_init (&argc, &argv);
 
     window_main = gtk_window_new (GTK_WINDOW_TOPLEVEL);

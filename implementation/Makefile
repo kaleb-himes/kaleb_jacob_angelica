@@ -22,8 +22,8 @@ GTKFLAGS=-export-dynamic `pkg-config --cflags --libs gtk+-2.0`
 
 all: game
 
-game: game.c initboard.c winlogic.c exit.c 
-	$(CC) -Wall game.c initboard.c winlogic.c exit.c -o game $(GTKFLAGS)
+game: gui/game.c gui/initboard.c winchecker.c gui/exit.c 
+	$(CC) -Wall gui/game.c gui/initboard.c winchecker.c gui/exit.c -o game $(GTKFLAGS)
 
 .PHONY: clean all
 

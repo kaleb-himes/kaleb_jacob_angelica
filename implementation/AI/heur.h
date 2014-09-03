@@ -1,4 +1,4 @@
-/* Copyright 2014 Kaleb, Jacob, Third_person
+/* Copyright 2014 Kaleb, Jacob, Angelica 
  * 
  * This file is part of Artificially Intelligent Polar Tic Tac Toe game.
  *
@@ -17,15 +17,9 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  */
+int heur_init();                    /*  */
+int heur_make_move(int* xyarray);   /*  */
+int heur_prune(int prune);          /*  */
+int heur_free();                    /*  */
+int heur_depth(int depth);          /*  */
 
-#include <stdio.h>
-#include <stdbool.h>
-#include "winlogic.h"
-
-bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][17])
-{
-    /* Until we implement the logic just return false */
-    bool bWin = false;
-	return bWin;
-	
-}

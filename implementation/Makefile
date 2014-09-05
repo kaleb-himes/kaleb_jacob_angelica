@@ -18,12 +18,12 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 CC=gcc
-GTKFLAGS=-export-dynamic `pkg-config --cflags --libs gtk+-2.0`
+GTKFLAGS=-export-dynamic -lpthread `pkg-config --cflags --libs gtk+-2.0`
 
 all: game
 
-game: gui/game.c gui/initboard.c winchecker.c gui/exit.c 
-	$(CC) -Wall gui/game.c gui/initboard.c winchecker.c gui/exit.c -o game $(GTKFLAGS)
+game: gui/game.c gui/initboard.c winchecker.c gui/exit.c util/node.c
+	$(CC) -Wall gui/game.c gui/initboard.c winchecker.c gui/exit.c util/node.h -o game $(GTKFLAGS)
 
 .PHONY: clean all
 

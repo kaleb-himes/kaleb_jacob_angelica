@@ -36,11 +36,33 @@ struct Node* Node_create()
         return NULL;
     }
     pthread_mutex_init(&node->lock, NULL);
-    node->data      = NULL;
-    node->childern  = NULL;
-    node->parent    = NULL;
-    node->numChildern = 0;
-    node->numParent   = 0;
+    /**
+     * Will contain the heuristic value of the node
+     * 1 = if curr_node is X, then has one neighbor that is also X
+     * 2 = has two neighbors of same type contributing to a winning state
+     * 3 = one move somewhere near this node will result in a win
+     * 4 = WIN
+     * @Heuristic value for win tracking
+     */
+    node->data          = NULL;
+
+    /* The player who moved on node, X or O */
+    node->player        = NULL;
+
+    /*
+     * Can have neighbors 
+     * 0 = North, 
+     * 1 = NorthEast, 
+     * 2 = East, 
+     * 3 = SouthEast, 
+     * 4 = South, 
+     * 5 = SouthWest, 
+     * 6 = West, 
+     * 7 = NorthWest
+     */ 
+    node->neighbor[8] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+
+    node->numneighbors  = 0;
 
     return node;
 }

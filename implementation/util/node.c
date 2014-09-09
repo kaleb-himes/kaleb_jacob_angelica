@@ -62,7 +62,7 @@ struct Node* Node_create()
      */ 
     node->neighbor[8] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
-    node->numneighbors  = 0;
+    node->numNeighbor  = 0;
 
     return node;
 }
@@ -86,72 +86,37 @@ inline int Node_delete(struct Node* in)
 
 
 /**
-  * Adds a parent to a node
+  * Adds a neighbor
   * @param in the address of node to add a parent to
   * @param parent the address of node to be added as a parent
   * @return 0 on success
   */
-inline int Node_addParent(struct Node* in, struct Node* parent)
+inline int Node_addNeighbor(struct Node* in, struct Node* neighbor)
 {
-    if (in == NULL || parent == NULL) {
+    if (in == NULL || neighbor == NULL) {
         printf("Error input argument to add parent was null\n");
         return 1;
     }
 
     /* case of first to be added */
-    if (!in->numParent) {
-        in->parent = malloc(sizeof(struct Node*));
-        in->parent = parent;
+    if (!in->numNeighbor) {
+        in->neighbor = malloc(sizeof(struct Node*));
+        in->neighbor = neighbor;
     }
     else {
-        /* reallocats memory for adding another parent pointer */
-        in->parent = realloc(in->parent, (in->numParent + 1) *
+        /* reallocats memory for adding another neighbor pointer */
+        in->neighbor = realloc(in->neighbor, (in->numNeighbor + 1) *
                 sizeof(struct Node*));
-        if (in->parent == NULL) {
+        if (in->neighbor == NULL) {
             printf("Fatal error adding a parent failed\n");
             return 1;
         }
-        in->parent[in->numParent] = parent;    
+        in->neighbor[in->numNeighbor] = neighbor;    
     }
 
-    in->numParent++;
+    in->numNeighbor++;
     return 0;
 }
-
-
-/**
-  * Adds a child to a node
-  * @param in the address of node to add a child to
-  * @param child the address of node to be added as a child
-  * @return 0 on success
-  */
-inline int Node_addChild(struct Node* in, struct Node* child)
-{
-    if (in == NULL || child == NULL) {
-        printf("Error input argument to add child was null\n");
-        return 1;
-    }
-
-    /* case of first to be added */
-    if (!in->numChildern) {
-        in->childern = malloc(sizeof(struct Node*));
-        in->childern = child;
-    }
-    else {
-        /* reallocats memory for adding another child pointer */
-        in->childern = realloc(in->childern, (in->numChildern + 1) *
-                sizeof(struct Node*));
-        if (in->childern == NULL) {
-            printf("Fatal error adding a child failed\n");
-            return 1;
-        }
-        in->childern[in->numChildern] = child;    
-    }
-
-    in->numChildern++;
-    return 0;
-}
-
 
 /**
   * Gets the data of the node. Use this function to make access to memory 

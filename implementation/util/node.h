@@ -48,20 +48,12 @@ struct Node* Node_create();
 inline int Node_delete(struct Node* in);
 
 /**
-  * Adds a parent to a node
-  * @param in the address of node to add a parent to
-  * @param parent the address of node to be added as a parent
+  * Adds a neighbor to a node
+  * @param in the address of node to add a neighbor to
+  * @param parent the address of node to be added as a neighbor
   * @return 0 on success
   */
-inline int Node_addParent(struct Node* in, struct Node* parent);
-
-/**
-  * Adds a child to a node
-  * @param in the address of node to add a child to
-  * @param child the address of node to be added as a child
-  * @return 0 on success
-  */
-inline int Node_addChild(struct Node* in, struct Node* child);
+inline int Node_addNeighbor(struct Node* in, struct Node* parent);
 
 /**
   * Gets the data of the node. Use this function to make access to memory 

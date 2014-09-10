@@ -20,18 +20,24 @@
  */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <pthread.h>
 
 #ifndef NODE_H
 #define NODE_H
 
+/**
+  * @param data will contain the heuristic value based on board state
+  * @param player X, O, or NULL
+  * @param neighbor[8] 0:N, 1:NE, 2:E, 3:SE, 4:S, 5:SW, 6:W, 7:NW
+  * @param numNeighbor if node==X, number of neighboring X's that contribute to a winning state.
+  */  
 struct Node {
-    pthread_mutex_t lock;     /* to make access of node thread safe           */
+    pthread_mutex_t* lock;     /* to make access of node thread safe           */
     void*           data;     /* user defined data, specialized for nodes use */
-    struct Node**   childern;
-    struct Node**   parent;
-    int numChildern;
-    int numParent;
+    void*           player;
+    struct Node**   neighbor;
+    int numNeighbor;
 };
 
 /**
@@ -50,10 +56,10 @@ inline int Node_delete(struct Node* in);
 /**
   * Adds a neighbor to a node
   * @param in the address of node to add a neighbor to
-  * @param parent the address of node to be added as a neighbor
+  * @param neighbor the address of node to be added as a neighbor
   * @return 0 on success
   */
-inline int Node_addNeighbor(struct Node* in, struct Node* parent);
+inline int Node_addNeighbor(struct Node* in, struct Node* neighbor);
 
 /**
   * Gets the data of the node. Use this function to make access to memory 

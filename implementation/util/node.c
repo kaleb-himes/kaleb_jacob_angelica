@@ -35,34 +35,11 @@ struct Node* Node_create()
         printf("Error not enough memory to create new node!\n");
         return NULL;
     }
-    pthread_mutex_init(&node->lock, NULL);
-    /**
-     * Will contain the heuristic value of the node
-     * 1 = if curr_node is X, then has one neighbor that is also X
-     * 2 = has two neighbors of same type contributing to a winning state
-     * 3 = one move somewhere near this node will result in a win
-     * 4 = WIN
-     * @Heuristic value for win tracking
-     */
+    pthread_mutex_init(node->lock, NULL);
     node->data          = NULL;
-
-    /* The player who moved on node, X or O */
     node->player        = NULL;
-
-    /*
-     * Can have neighbors 
-     * 0 = North, 
-     * 1 = NorthEast, 
-     * 2 = East, 
-     * 3 = SouthEast, 
-     * 4 = South, 
-     * 5 = SouthWest, 
-     * 6 = West, 
-     * 7 = NorthWest
-     */ 
-    node->neighbor[8] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
-
-    node->numNeighbor  = 0;
+    node->neighbor      = NULL;
+    node->numNeighbor   = 0;
 
     return node;
 }
@@ -77,41 +54,41 @@ inline int Node_delete(struct Node* in)
     /* check if not null, then free */
     if (in->data)
         free(in->data);
-    if (in->childern)
-        free(in->childern);
-    if (in->parent)
-        free(in->parent);
+    if (in->player)
+        free(in->player);
+    if (in->neighbor)
+        free(in->neighbor);
     return 0;
 }
 
 
 /**
   * Adds a neighbor
-  * @param in the address of node to add a parent to
-  * @param parent the address of node to be added as a parent
+  * @param in the address of node to add a neighbor to
+  * @param newNeighbor the address of node to be added as a newNeighbor
   * @return 0 on success
   */
-inline int Node_addNeighbor(struct Node* in, struct Node* neighbor)
+inline int Node_addNeighbor(struct Node* in, struct Node* newNeighbor)
 {
-    if (in == NULL || neighbor == NULL) {
-        printf("Error input argument to add parent was null\n");
+    if (in == NULL || newNeighbor == NULL) {
+        printf("Error input argument to add neighbor was null\n");
         return 1;
     }
 
     /* case of first to be added */
     if (!in->numNeighbor) {
         in->neighbor = malloc(sizeof(struct Node*));
-        in->neighbor = neighbor;
+        in->neighbor = &newNeighbor;
     }
     else {
         /* reallocats memory for adding another neighbor pointer */
         in->neighbor = realloc(in->neighbor, (in->numNeighbor + 1) *
                 sizeof(struct Node*));
         if (in->neighbor == NULL) {
-            printf("Fatal error adding a parent failed\n");
+            printf("Fatal error adding a neighbor failed\n");
             return 1;
         }
-        in->neighbor[in->numNeighbor] = neighbor;    
+        in->neighbor[in->numNeighbor] = newNeighbor;    
     }
 
     in->numNeighbor++;
@@ -149,5 +126,4 @@ inline void Node_doneData(struct Node* in)
 
     pthread_mutex_unlock(in->lock);
 }
-
 

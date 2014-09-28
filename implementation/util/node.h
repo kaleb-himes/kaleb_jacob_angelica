@@ -48,7 +48,7 @@ struct Node* Node_create();
 
 /**
   * Used to properly delete a node and free up its memory
-  * @param the addres to the node to be deleted
+  * @param in the address to the node to be deleted
   * @return 0 on success
   */
 inline int Node_delete(struct Node* in);
@@ -56,22 +56,22 @@ inline int Node_delete(struct Node* in);
 /**
   * Adds a neighbor to a node
   * @param in the address of node to add a neighbor to
-  * @param neighbor the address of node to be added as a neighbor
+  * @param newNeighbor the address of node to be added as a neighbor
   * @return 0 on success
   */
-inline int Node_addNeighbor(struct Node* in, struct Node* neighbor);
+inline int Node_addNeighbor(struct Node* in, struct Node* newNeighbor);
 
 /**
   * Gets the data of the node. Use this function to make access to memory 
   * thread safe. Be sure to call function Node_doneData when done using the data
-  * @parem in the address of the node to access memory from
+  * @param in the address of the node to access memory from
   */
 inline void* Node_getData(struct Node* in);
 
 /**
   * Done using the nodes data. Use this function to make access to memory 
   * thread safe. 
-  * @parem in the address of the node that user is done with
+  * @param in the address of the node that user is done with
   */
 inline void Node_doneData(struct Node* in);
 

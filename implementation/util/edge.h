@@ -39,7 +39,7 @@ struct Edge* Edge_create();
 
 /**
   * Used to remove edge on board reset and free memory allocated
-  * @param the address to the edge deleted
+  * @param in the address to the edge deleted
   * @return 0 on success
   */  
 inline int Edge_delete(struct Edge* in);

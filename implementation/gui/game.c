@@ -119,7 +119,6 @@ static gboolean moved (GtkWidget *widget, GdkEvent *event, gpointer data)
      * we can use it for something else if needed. */
 
     /* GtkWidget *dialog_invalid; */
-
     char image_location [16] = "./images/";
     strcat (image_location, &player_turn);
     strcat (image_location, ".png");
@@ -127,7 +126,6 @@ static gboolean moved (GtkWidget *widget, GdkEvent *event, gpointer data)
     if (board_location [i_location [0]][i_location [1]] == 'E')
     {
         board_location [i_location [0]][i_location [1]] = player_turn;
-
 
         while (x < i_location [0])
         {
@@ -154,10 +152,10 @@ static gboolean moved (GtkWidget *widget, GdkEvent *event, gpointer data)
             printf ("%c Won the game\n", player_turn);
 
             dialog_win = gtk_message_dialog_new (NULL,
-                    GTK_DIALOG_MODAL,
-                    GTK_MESSAGE_INFO,
-                    GTK_BUTTONS_CLOSE,
-                    "%c has won the game\n", player_turn);
+                               GTK_DIALOG_MODAL,
+                                  GTK_MESSAGE_INFO,
+                                     GTK_BUTTONS_CLOSE,
+                                        "%c has won the game\n", player_turn);
 
             /* gtk_message_dialog_format_secondary_text (GTK_DIALOG (dialog_win), "test"); */						
             gtk_dialog_run (GTK_DIALOG (dialog_win));
@@ -195,11 +193,10 @@ static gboolean moved (GtkWidget *widget, GdkEvent *event, gpointer data)
         if (i == 0)
         {
             dialog_win = gtk_message_dialog_new (NULL,
-                    GTK_DIALOG_MODAL,
-                    GTK_MESSAGE_INFO,
-                    GTK_BUTTONS_CLOSE,
-                    "No one has won\n");
-
+                                                 GTK_DIALOG_MODAL,
+                                                    GTK_MESSAGE_INFO,
+                                                       GTK_BUTTONS_CLOSE,
+                                                          "No one has won\n");
             gtk_dialog_run (GTK_DIALOG (dialog_win));
             gtk_widget_destroy (dialog_win);
 

@@ -52,3 +52,12 @@ int TDNN_free();                    /*  */
   */
 int TDNN_depth(int depth);          /*  */
 
+/* defined constant variables */
+#define ALPHA .1 /* learning rate */
+
+/* structures needed for implementation */
+typedef struct {
+    float delta; /* error */
+
+
+} info;

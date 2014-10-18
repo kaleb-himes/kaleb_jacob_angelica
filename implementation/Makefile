@@ -18,7 +18,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 CC=gcc
-GTKFLAGS=-export-dynamic -lpthread `pkg-config --cflags --libs gtk+-2.0`
+GTKFLAGS=-fPIC -export-dynamic -lpthread -I/System/Library/Frameworks/JavaVM.framework/Headers `pkg-config --cflags --libs gtk+-2.0`
 
 all: game
 

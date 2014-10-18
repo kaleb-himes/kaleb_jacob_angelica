@@ -19,6 +19,13 @@
 int depth; /* variable for depth of search */
 
 
+int ideal_perdiction()
+{
+
+    return 0;
+}
+
+
 /**
   * Initialize the neural network
   * @return returns 0 on success and 1 on fail

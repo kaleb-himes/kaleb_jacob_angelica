@@ -21,8 +21,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "winchecker.h"
+#include "JavaWinChecker.h"
 #include "board_state.h"
+
+#include <unistd.h>
 
 struct heap_node {
     int  value;
@@ -49,18 +51,39 @@ struct hash_map*  map;  /* map of ids to node they belong in */
 
 char current_player;
 
-
-bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][17])
+/**
+  * Java entry point for winchecker
+  * Function to check for a win
+  * @param cPlayerTurn current player to check
+  * @param cPlayerBoardLoc
+  * @return a boolean value of win or not
+  */
+JNIEXPORT jboolean JNICALL Java_JavaWinChecker_check_1win
+  (JNIEnv * env, jclass jc, jchar jch, jobjectArray jarr)
 {
     /* Until we implement the logic just return false */
     bool bWin = false;
 
     /* check heap for a win */
     
-
-	return bWin;
+    if (bWin)
+	    return JNI_TRUE;
+    else
+        return JNI_FALSE;
 	
 }
+
+//bool check_win (char cPlayerTurn, char cPlayerBoardLoc [][17])
+//{
+//    /* Until we implement the logic just return false */
+//    bool bWin = false;
+//
+//    /* check heap for a win */
+//    
+//
+//	return bWin;
+//	
+//}
 
 /**
   * Create a hash for the x y cord
@@ -225,7 +248,7 @@ int node_merge(int dir, int n, int c)
 
 static inline int has_neighbor(int x, int y)
 {
-    char**  player_loc;
+    char**  player_loc = NULL;
     int height;
     int width;
     int i;

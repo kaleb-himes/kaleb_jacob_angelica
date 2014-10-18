@@ -25,5 +25,5 @@
   * @param height sets the height of array [height][]
   * @param width sets the width of array [][width]
   */
-void get_state(int** array, int* height, int* width);
+void get_state(char** array, int* height, int* width);
 

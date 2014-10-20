@@ -1,6 +1,6 @@
 /*header file for mlp.c*/
 
-#ifndef _mlp_h_
+#ifndef _mlp_h
 #define _mlp_h
 
 

@@ -1,6 +1,7 @@
 
 
-#include "TDNN.h"
+#include "JavaTDNN.h"
+#include <unistd.h>
 
 /*
     Learning function is delta Wt = alpha ( z - V(st)) gradiant descent w V(st)
@@ -18,7 +19,6 @@
 
 int depth; /* variable for depth of search */
 
-
 int ideal_perdiction()
 {
 
@@ -30,7 +30,8 @@ int ideal_perdiction()
   * Initialize the neural network
   * @return returns 0 on success and 1 on fail
   */
-int TDNN_init() 
+JNIEXPORT jint JNICALL Java_JavaTDNN_TDNN_1init
+  (JNIEnv * env, jclass jc)
 {
 
     return 0;
@@ -41,7 +42,8 @@ int TDNN_init()
   * @param xyarray the x and y integer for placement
   * @return 0 for success 
   */
-int TDNN_make_move(int* xyarray)
+JNIEXPORT jint JNICALL Java_JavaTDNN_TDNN_1make_1move
+  (JNIEnv * env, jclass jc, jintArray jarr)
 {
 
     return 0;
@@ -53,9 +55,9 @@ int TDNN_make_move(int* xyarray)
   * @param prune a boolean flag to set prunning
   * @return 0 for success
   */
-int TDNN_prune(int prune)
+JNIEXPORT jint JNICALL Java_JavaTDNN_TDNN_1prune
+  (JNIEnv * env, jclass jc, jint ji)
 {
-    /*  */
     return 0;
 }
 
@@ -63,9 +65,9 @@ int TDNN_prune(int prune)
   * Free up memory allocated for neural network
   * @return 0 for success
   */
-int TDNN_free()
+JNIEXPORT jint JNICALL Java_JavaTDNN_TDNN_1free
+  (JNIEnv * env, jclass jc)
 {
-    /*  */
 
 
     return 0;
@@ -76,10 +78,9 @@ int TDNN_free()
   * @param depth the depth to search
   * @return 0 for success
   */
-int TDNN_depth(int depth)
+JNIEXPORT jint JNICALL Java_JavaTDNN_TDNN_1depth
+  (JNIEnv * env, jclass jc, jint ji)
 {
-    /*  */
-
 
     return 0;
 }

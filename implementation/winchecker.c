@@ -26,6 +26,11 @@
 
 #include <unistd.h>
 
+int main()
+{
+    return 0;
+}
+
 struct heap_node {
     int  value;
     int  dir;   /* nodes can have 4 directions
@@ -249,11 +254,12 @@ int node_merge(int dir, int n, int c)
 static inline int has_neighbor(int x, int y)
 {
     char**  player_loc = NULL;
-    int height;
-    int width;
+    int height = 0;
+    int width  = 0;
     int i;
 
-    get_state(player_loc, &height, &width);
+    //TODO logic depends on getting array state of board
+    //get_state(player_loc, &height, &width);
 
     /* if a neighbor is found the first attempt will be to merge with a node */
     for (i = (x <= 0)? 0 : (x -1); i < (x >= width)? width : (x + 1); x++) {

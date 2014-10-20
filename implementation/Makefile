@@ -18,15 +18,15 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 CC=gcc
-GTKFLAGS=-fPIC -export-dynamic -lpthread -I/System/Library/Frameworks/JavaVM.framework/Headers `pkg-config --cflags --libs gtk+-2.0`
+FLAGS=-fPIC -export-dynamic -lpthread -I/System/Library/Frameworks/JavaVM.framework/Headers -I/usr/lib/jvm/java-1.6.0-openjdk/include
 
 all: game
 
-game: gui/game.c gui/initboard.c winchecker.c gui/exit.c util/node.c util/edge.c
-	$(CC) -Wall gui/game.c gui/initboard.c winchecker.c gui/exit.c util/node.c util/edge.c -o game $(GTKFLAGS)
+game: AI/*.c winchecker.c util/node.c util/edge.c
+	$(CC) -Wall  AI/*.c winchecker.c util/node.c util/edge.c -o game $(FLAGS)
 
 .PHONY: clean all
 
 clean:
-	rm -f *.o game
+	rm -f *.o game *.class JavaWinChecker.h AI/*.class AI/JavaTDNN.h AI/JavaClassifier.h
 

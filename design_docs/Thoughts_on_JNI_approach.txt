@@ -1,0 +1,15 @@
+Kaleb: I'm trying to figure out how to pass arguments through JNI to
+C to manipulate the arguments then back.
+Angelica: How about using some sort of text intermediary?
+
+Kaleb: OMFG you solved it.
+
+Solution: JNI will have a native method called "NOTIFY()" This
+method will alert C that a file is ready to be opened and read.
+
+C will open the txt document, read out the x and y coordinates of 
+the mouse clicked event, perform logic based on these coordinates
+then write any prevelent information back to the txt document. Then
+update the native notify method alerting java to then open and read
+out any information needed etc.
+

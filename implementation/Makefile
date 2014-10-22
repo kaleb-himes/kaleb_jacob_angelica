@@ -17,8 +17,12 @@
 #
 # If not, see <http://www.gnu.org/licenses/>.
 
+
+
 CC=gcc
-FLAGS=-fPIC -export-dynamic -lpthread -I/System/Library/Frameworks/JavaVM.framework/Headers -I/usr/lib/jvm/java-1.6.0-openjdk/include
+#find if there is  a way to check jdk version with "#ifdef"
+
+FLAGS=-fPIC -export-dynamic -lpthread -I/System/Library/Frameworks/JavaVM.framework/Headers -I/usr/lib/jvm/java-1.6.0-openjdk/include -I/usr/lib/jvm/java-1.7.0-openjdk-i386/include
 
 all: game
 

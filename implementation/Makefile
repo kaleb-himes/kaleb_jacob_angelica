@@ -21,15 +21,14 @@
 
 CC=gcc
 #find if there is  a way to check jdk version with "#ifdef"
-
-PREFIX=-c
+JAVA_HOME=/usr/bin/java
 
 FLAGS=-fPIC -export-dynamic -lpthread -I/System/Library/Frameworks/JavaVM.framework/Headers -I/usr/lib/jvm/java-1.6.0-openjdk/include -I/usr/lib/jvm/java-1.7.0-openjdk-i386/include -I"%JAVA_HOME%\include"
 
 all: game
 
 game: AI/*.c winchecker.c util/node.c util/edge.c gui/*.c
-	$(CC) -Wall  AI/*.c winchecker.c util/node.c util/edge.c $(PREFIX)gui/game.c -o game $(FLAGS)
+	$(CC) -Wall  AI/*.c winchecker.c util/node.c util/edge.c gui/game.c -o game $(FLAGS)
 
 .PHONY: clean all
 

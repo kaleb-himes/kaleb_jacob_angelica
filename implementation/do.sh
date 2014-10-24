@@ -8,8 +8,8 @@ javah JavaClassifier
 cd ..
 #back in the implementation directory
 #/ creates function prototype for the "pass" method /#
-javac -d  gui.Main
+javac gui/Main.java
 #/ create the header /#
-javah -jni gui.JavaPasser
+javah gui.JavaPasser
 #/ compile the main program /#
 make

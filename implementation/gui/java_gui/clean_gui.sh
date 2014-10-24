@@ -1,1 +1,0 @@
-rm gui/Main*.class

@@ -1,9 +1,8 @@
+package gui;
 /**
  *
  * @author Kaleb
  */
-package gui;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -471,6 +470,7 @@ public class Main extends JFrame {
         Point a             = game_board_panel.getMousePosition();
         int x               = (int) a.getX();
         int y               = (int) a.getY();
+        JavaPasser.pass(x, y, player);
         boolean successful  = false;
         String curr         = game_state_display.getText();
         int right_x, bottom_y, left_x, top_y;

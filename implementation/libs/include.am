@@ -1,0 +1,17 @@
+# vim:ft=automake
+# All paths should be given relative to the root
+#
+
+nobase_include_HEADERS+= \
+                         libs/version.h \
+                         libs/board_state.h \
+				     libs/classifier.h \
+                         libs/edge.h \
+                         libs/gui_JavaPasser.h \
+                         libs/heur.h \
+                         libs/JavaClassifier.h \
+                         libs/JavaTDNN.h \
+                         libs/JavaWinChecker.h \
+                         libs/mlp.h \
+                         libs/node.h \
+                         libs/TDNN.h

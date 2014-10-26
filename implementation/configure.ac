@@ -71,11 +71,14 @@ AC_PROG_MAKE_SET
 AM_PROG_CC_C_O
 
 # Checks for headers/libraries
+AC_C_INLINE
+AC_PROG_RANLIB
 AC_HEADER_STDC
 AC_CHECK_SIZEOF(long, 4)
 AC_CHECK_SIZEOF(long long, 8)
 AC_CHECK_FUNCS([gettimeofday memset alarm])
 AC_CHECK_HEADERS([sys/time.h string.h termios.h unistd.h])
+AC_CHECK_HEADER_STDBOOL
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_TYPE_INT64_T

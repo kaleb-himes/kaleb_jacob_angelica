@@ -83,12 +83,10 @@ AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_TYPE_INT64_T
 
-# Requirements
-# TAO_REQUIRE_LIBCYASSL
-
 DEBUG_CFLAGS="-g -DDEBUG -DDEBUG_POLARTTT"
-# since we have autoconf available, we can use cyassl options header
-# AM_CFLAGS="$AM_CFLAGS -DHAVE_CYASSL_OPTIONS"
+
+                        # -DHAVE_CYASSL_OPTIONS"
+# AM_CFLAGS="$AM_CFLAGS"
 
 # capture user C_EXTRA_FLAGS from ./configure line, CFLAGS may hold -g -O2 even
 # if user doesn't override, no way to tell

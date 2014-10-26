@@ -590,7 +590,8 @@ include_HEADERS =
 nobase_include_HEADERS = libs/version.h libs/board_state.h \
 	libs/classifier.h libs/edge.h libs/gui_JavaPasser.h \
 	libs/heur.h libs/JavaClassifier.h libs/JavaTDNN.h \
-	libs/JavaWinChecker.h libs/mlp.h libs/node.h libs/TDNN.h
+	libs/JavaWinChecker.h libs/mlp.h libs/node.h libs/TDNN.h \
+	/usr/lib/jvm/java-7-openjdk-i386/include/jni.h
 EXTRA_HEADERS = 
 BUILT_SOURCES = 
 EXTRA_DIST = 
@@ -598,7 +599,7 @@ dist_doc_DATA =
 
 #exampledir = $(docdir)/example
 #dist_example_DATA=
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 -I /usr/lib/jvm/java-7-openjdk-i386/include
 polarTTT_SOURCES = game/AI/mlp.c \
 				   game/AI/TDNN.c \
 				   game/gui/JavaPasser.c \

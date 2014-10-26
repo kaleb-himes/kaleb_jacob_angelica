@@ -25,7 +25,7 @@ DISTCLEANFILES+= aminclude.am
 #exampledir = $(docdir)/example
 #dist_example_DATA=
 
-ACLOCAL_AMFLAGS= -I m4
+ACLOCAL_AMFLAGS= -I m4 -I /usr/lib/jvm/java-7-openjdk-i386/include
 
 ###### includes ###################
 include libs/include.am

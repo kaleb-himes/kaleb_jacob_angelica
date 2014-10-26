@@ -5,7 +5,7 @@
 nobase_include_HEADERS+= \
                          libs/version.h \
                          libs/board_state.h \
-				     libs/classifier.h \
+						 libs/classifier.h \
                          libs/edge.h \
                          libs/gui_JavaPasser.h \
                          libs/heur.h \
@@ -14,4 +14,6 @@ nobase_include_HEADERS+= \
                          libs/JavaWinChecker.h \
                          libs/mlp.h \
                          libs/node.h \
-                         libs/TDNN.h
+                         libs/TDNN.h \
+						 /usr/lib/jvm/java-7-openjdk-i386/include/jni.h
+

@@ -952,7 +952,7 @@ configure: failed program was:
 configure:18080: result: no
 configure:17978: checking whether pthreads work without any flags
 configure:18071: clang -o conftest    -fvisibility=hidden  conftest.c   >&5
-/tmp/conftest-d6a115.o: In function `main':
+/tmp/conftest-aef713.o: In function `main':
 conftest.c:(.text+0x39): undefined reference to `pthread_create'
 conftest.c:(.text+0x57): undefined reference to `pthread_join'
 conftest.c:(.text+0xc8): undefined reference to `__pthread_register_cancel'

@@ -25,19 +25,27 @@ DISTCLEANFILES+= aminclude.am
 #exampledir = $(docdir)/example
 #dist_example_DATA=
 
-ACLOCAL_AMFLAGS= -I m4 -I /usr/lib/jvm/java-7-openjdk-i386/include
+ACLOCAL_AMFLAGS= -I m4
 
 ###### includes ###################
 include libs/include.am
 include game/include.am
 ######### End includes ############
-
-
 TESTS += $(check_PROGRAMS)
 test: check
 
-DISTCLEANFILES+= polarTTT-config
+####################################################################
+### YOU WILL NEED TO EDIT THIS SECTION TO INCLUDE YOUR JAVA HOME ###
+####################################################################
+CHECK1=/usr/lib/jvm/java-7-openjdk-i386/include/jni.h
+CHECK2=/usr/lib/jvm/java-6-openjkd-i386/include/jni.h
 
+EXTRA_DIST += \
+			$CHECK1 \
+			$CHECK2
+####################################################################
+
+DISTCLEANFILES+= polarTTT-config
 
 maintainer-clean-local:
 	-rm Makefile.in

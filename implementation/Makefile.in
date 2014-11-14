@@ -580,7 +580,6 @@ top_srcdir = @top_srcdir@
 # includes append to these:
 SUFFIXES = 
 CLEANFILES = 
-####################################################################
 DISTCLEANFILES = aminclude.am polarTTT-config
 #bin_PROGRAMS =
 noinst_HEADERS = 
@@ -588,17 +587,23 @@ lib_LTLIBRARIES =
 man_MANS = 
 noinst_LTLIBRARIES = 
 include_HEADERS = 
-nobase_include_HEADERS = libs/version.h libs/board_state.h \
-	libs/classifier.h libs/edge.h libs/gui_JavaPasser.h \
-	libs/heur.h libs/JavaClassifier.h libs/JavaTDNN.h \
-	libs/JavaWinChecker.h libs/mlp.h libs/node.h libs/TDNN.h
-EXTRA_HEADERS = 
-BUILT_SOURCES = 
-EXTRA_DIST = $CHECK1 $CHECK2
-dist_doc_DATA = 
 
 #exampledir = $(docdir)/example
 #dist_example_DATA=
+
+#------------------------------------------------------------------#
+#-- YOU WILL NEED TO EDIT THE FOLLOWING LINE WITH YOUR JAVA DIR ---#
+#------------------------------------------------------------------#
+nobase_include_HEADERS = /usr/lib/jvm/java-7-openjdk-i386/include \
+	libs/version.h libs/board_state.h libs/classifier.h \
+	libs/edge.h libs/gui_JavaPasser.h libs/heur.h \
+	libs/JavaClassifier.h libs/JavaTDNN.h libs/JavaWinChecker.h \
+	libs/mlp.h libs/node.h libs/TDNN.h
+EXTRA_HEADERS = 
+BUILT_SOURCES = 
+EXTRA_DIST = 
+dist_doc_DATA = 
+#------------------------------------------------------------------#
 ACLOCAL_AMFLAGS = -I m4
 polarTTT_SOURCES = game/AI/mlp.c \
 				   game/AI/TDNN.c \
@@ -608,12 +613,6 @@ polarTTT_SOURCES = game/AI/mlp.c \
 				   game/util/edge.c \
 				   game/util/node.c
 
-
-####################################################################
-### YOU WILL NEED TO EDIT THIS SECTION TO INCLUDE YOUR JAVA HOME ###
-####################################################################
-CHECK1 = /usr/lib/jvm/java-7-openjdk-i386/include/jni.h
-CHECK2 = /usr/lib/jvm/java-6-openjkd-i386/include/jni.h
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -1502,6 +1501,7 @@ uninstall-am: uninstall-binPROGRAMS uninstall-dist_docDATA \
 # src_libpolarTTT_la_CPPFLAGS  = -DBUILDING_POLARTTT $(AM_CPPFLAGS)
 # src_polarTTT_la_LDFLAGS    = ${AM_LDFLAGS} -no-undefined -version-info ${POLARTTT_LIBRARY_VERSION} 
 # src_libpolarTTT_la_DEPENDENCIES =
+# EXTRA_DIST+=
 test: check
 
 maintainer-clean-local:

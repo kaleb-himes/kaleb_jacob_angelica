@@ -44,7 +44,7 @@ struct Node {
   * Creates and allocates memory for a new node.
   * @return the pointer the the memory of the new node
   */
-struct Node* Node_create();
+struct Node* Node_create(void);
 
 /**
   * Used to properly delete a node and free up its memory
